@@ -9,6 +9,8 @@ Quando la partita termina, comunichiamo all'utente il suo punteggio. */
 //TODO 1. Creo array vuoto in cui inserire i 16 numeri generati dal computer
 //TODO 2. Creo funzione per far generare i numeri random al computer
 //TODO 3. Pongo le condizioni affinché i numeri inseriti nell'array rispettino le seguenti regole: devono essere 16 al max e diversi tra loro.
+//TODO 4. Creo variabile per chiedere il numero al giocatore
+//TODO 5. Chiedo il numero finché non perde e finché non mi dà un numero diverso dai precedenti
 
 
 //! 1. 
