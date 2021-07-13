@@ -18,6 +18,7 @@ Quando la partita termina, comunichiamo all'utente il suo punteggio. */
 var bombs = [];
 
 
+
 //! 2. 
 function cpuRandom(){
     var randomNum = Math.floor(Math.random() * 100) + 1;
@@ -59,18 +60,17 @@ var userArray = [];
 while (userArray.length < 84) {
     var userNumber = getNumber();
 
-    if (userNumber === randomNumber){
+    if (bombs.includes(userNumber)){
         alert ('Game over!');
+        break;
 
-    } else if (!userArray.includes(userNumber)){
+    } else if (!bombs.includes(userNumber)){
         userArray.push(userNumber);
+        console.log(userArray);
+    }  
+} 
 
-    } else {
-        userNumber = getNumber();
-    }
-}
-
-console.log('numeri utente: ' + userArray)
+console.log('numeri utente: ' + userArray);
 
 
 
