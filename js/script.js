@@ -10,7 +10,8 @@ Quando la partita termina, comunichiamo all'utente il suo punteggio. */
 //TODO 2. Creo funzione per far generare i numeri random al computer
 //TODO 3. Pongo le condizioni affinché i numeri inseriti nell'array rispettino le seguenti regole: devono essere 16 al max e diversi tra loro.
 //TODO 4. Creo funzione per chiedere il numero al giocatore
-//TODO 5. Chiedo il numero finché non perde e finché non mi dà un numero diverso dai precedenti
+//TODO 5. Creo array per inserire i numeri scelti dal giocatore
+//TODO 6. Pongo la condizione di chiedere il numero finché non perde e finché non mi dà un numero diverso dai precedenti
 
 
 //! 1. 
@@ -38,15 +39,38 @@ console.log('array bombs: ' + bombs);
 
 
 //! 4. 
-function getNumber(); {
+function getNumber() {
     var userChoice = parseInt(prompt('Inserisci un numero compreso tra 1 e 100'));
 
         while (!userChoice || isNaN(userChoice) || userChoice < 1 || userChoice > 100) {
             userChoice = parseInt(prompt('Inserisci un numero compreso tra 1 e 100'));
         }
+
     console.log('l\'utente ha scelto: ' + userChoice);
     return userChoice;   
 }
+
+
+//! 5.
+var userArray = [];
+
+
+//! 6.
+while (userArray.length < 84) {
+    var userNumber = getNumber();
+
+    if (userNumber === randomNumber){
+        alert ('Game over!');
+
+    } else if (!userArray.includes(userNumber)){
+        userArray.push(userNumber);
+
+    } else {
+        userNumber = getNumber();
+    }
+}
+
+console.log('numeri utente: ' + userArray)
 
 
 
