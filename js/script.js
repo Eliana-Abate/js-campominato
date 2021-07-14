@@ -11,7 +11,7 @@ Quando la partita termina, comunichiamo all'utente il suo punteggio. */
 //TODO 3. Pongo le condizioni affinché i numeri inseriti nell'array rispettino le seguenti regole: devono essere 16 al max e diversi tra loro.
 //TODO 4. Creo funzione per chiedere il numero al giocatore
 //TODO 5. Creo array per inserire i numeri scelti dal giocatore
-//TODO 6. Pongo la condizione di chiedere il numero finché non perde e finché non mi dà un numero diverso dai precedenti
+//TODO 6. Pongo la condizione di chiedere il numero finché non perde (= il suo numero è presente nell'Array 'Bombs') e finché non mi dà un numero diverso dai precedenti (= il numero scritto non è già presente nellàarray dell'utente)
 
 
 //! 1. 
@@ -64,10 +64,10 @@ while (userArray.length < 84) {
         alert ('Game over!');
         break;
 
-    } else if (!bombs.includes(userNumber)){
+    } else if (!bombs.includes(userNumber) && !userArray.includes(userNumber)){
         userArray.push(userNumber);
         console.log(userArray);
-    }  
+    } 
 } 
 
 console.log('numeri utente: ' + userArray);
