@@ -12,7 +12,7 @@ Quando la partita termina, comunichiamo all'utente il suo punteggio. */
 //TODO 4. Creo funzione per chiedere il numero al giocatore
 //TODO 5. Creo array per inserire i numeri scelti dal giocatore
 //TODO 6. Pongo la condizione di chiedere il numero finché non perde (= il suo numero è presente nell'Array 'Bombs') e finché non mi dà un numero diverso dai precedenti (= il numero scritto non è già presente nellàarray dell'utente)
-
+//TODO 7. Faccio un ciclo FOR per l'array dell'utente, in modo tale che per ogni elemento [i] dell'array venga assegnato il valore di 1 punto.
 
 //! 1. 
 var bombs = [];
