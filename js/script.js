@@ -72,6 +72,14 @@ while (userArray.length < 84) {
 
 console.log('numeri utente: ' + userArray);
 
+//! 7. 
+var score = '';
 
+for (var i = 0; i < userArray.length; i++) {
+    var point = 1;
+    userArray[i] = point;
+    score = point * userArray.length;
+}
 
+console.log('il mio punteggio: ' + score);
 
