@@ -13,6 +13,9 @@ Quando la partita termina, comunichiamo all'utente il suo punteggio. */
 //TODO 5. Creo array per inserire i numeri scelti dal giocatore
 //TODO 6. Pongo la condizione di chiedere il numero finché non perde (= il suo numero è presente nell'Array 'Bombs') e finché non mi dà un numero diverso dai precedenti (= il numero scritto non è già presente nellàarray dell'utente)
 //TODO 7. Faccio un ciclo FOR per l'array dell'utente, in modo tale che per ogni elemento [i] dell'array venga assegnato il valore di 1 punto.
+    // 7.1. ALTERNATIVA AL CICLO FOR
+
+
 
 //! 1. 
 var bombs = [];
@@ -82,4 +85,10 @@ for (var i = 0; i < userArray.length; i++) {
 }
 
 console.log('il mio punteggio: ' + score);
+
+// 7.1. ALTERNATIVA 
+/* Poiché il punteggio da assegnare è di 1 per ogni elemento di 'userArray' potrei semplicemente scrivere che: 
+    
+     var score = userArray.length;
+*/
 
