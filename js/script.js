@@ -31,30 +31,9 @@ con difficoltà 2 => tra 1 e 50
 //! 1.  +  9.
 var totalNumber;
 var totalBombs = 16;
-var totalChoices = totalNumber - totalBombs;
+
 
 var bombs = [];
-
-
-
-//! 2. 
-function cpuRandom(){
-    var randomNum = Math.floor(Math.random() * 100) + 1;
-
-    return randomNum;
-}
-
-
-//! 3.
-while (bombs.length < totalBombs) {
-    var randomNumber = cpuRandom();
-
-    if (!bombs.includes(randomNumber)){
-        bombs.push(randomNumber); 
-    } 
-}
-
-console.log('array bombs: ' + bombs);
 
 //! 10.
 var level = prompt('Scegli il livello di difficoltà: "facile", "medio", "difficile".');
@@ -78,6 +57,32 @@ switch (level.toLowerCase().trim()) {
         totalNumber = 50;
         break;    
 }
+
+
+var totalChoices = totalNumber - totalBombs;
+
+
+
+
+//! 2. 
+function cpuRandom(){
+    var randomNum = Math.floor(Math.random() * totalNumber) + 1;
+
+    return randomNum;
+}
+
+
+//! 3.
+while (bombs.length < totalBombs) {
+    var randomNumber = cpuRandom();
+
+    if (!bombs.includes(randomNumber)){
+        bombs.push(randomNumber); 
+    } 
+}
+
+console.log('array bombs: ' + bombs);
+
 
 
 
