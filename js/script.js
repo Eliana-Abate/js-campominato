@@ -85,7 +85,7 @@ switch (level.toLowerCase().trim()) {
 function getNumber() {
     var userChoice = parseInt(prompt('Inserisci un numero compreso tra 1 e ' + totalNumber));
 
-        while (!userChoice || isNaN(userChoice) || userChoice < 1 || userChoice > 100) {
+        while (!userChoice || isNaN(userChoice) || userChoice < 1 || userChoice > totalNumber) {
             userChoice = parseInt(prompt('Inserisci un numero compreso tra 1 e ' + totalNumber));
         }
 
