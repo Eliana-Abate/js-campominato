@@ -26,6 +26,8 @@ con difficoltà 2 => tra 1 e 50
 //TODO 11. Faccio validazione del livello scelto
 //TODO 12. Creo SWITCH per variare il valore della variabile 'totalNumber' a seconda del livello di difficoltà scelto
 
+//TODO 13. Stampo in pagina
+
 
 
 //! 1.  +  9.
@@ -121,7 +123,7 @@ while (userArray.length < totalChoices) {
 console.log('Numeri scelti dall\'utente: ' + userArray);
 
 //! 7. 
-var score = '';
+var score = 0;
 
 for (var i = 0; i < userArray.length; i++) {
     var point = 1;
@@ -138,3 +140,15 @@ console.log('Punteggio totalizzato: ' + score);
      var score = userArray.length;
 */
 
+
+//! 13. PRINT IN HTML
+var displayScore = document.getElementById('score-result');
+displayScore.innerHTML = 'Hai totalizzato un punteggio di ' + score + ' su ' + totalChoices;
+
+var displayWinner = document.getElementById('win-lost');
+
+if (score == totalNumber) {
+    displayWinner.innerHTML = 'Complimenti! Hai vinto!'
+} else {
+    displayWinner.innerHTML = 'Hai perso! Ritenta e sarai più fortunato!'
+}
