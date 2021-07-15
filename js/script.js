@@ -14,10 +14,25 @@ Quando la partita termina, comunichiamo all'utente il suo punteggio. */
 //TODO 6. Pongo la condizione di chiedere il numero finché non perde (= il suo numero è presente nell'Array 'Bombs') e finché non mi dà un numero diverso dai precedenti (= il numero scritto non è già presente nellàarray dell'utente)
 //TODO 7. Faccio un ciclo FOR per l'array dell'utente, in modo tale che per ogni elemento [i] dell'array venga assegnato il valore di 1 punto.
     // 7.1. ALTERNATIVA AL CICLO FOR
+//TODO 8. BONUS: 
+/*BONUS: (da fare solo se funziona tutto il resto)
+all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
+con difficoltà 0 => tra 1 e 100
+con difficoltà 1 => tra 1 e 80
+con difficoltà 2 => tra 1 e 50
+*/
+//TODO 9. Aggiungo variabili per definire i numeri di ogni livello
+//TODO 10. Chiedo all'utente di scegliere il livello
+//TODO 11. Faccio validazione del livello scelto
+//TODO 12. Creo SWITCH per variare il valore della variabile 'totalNumber' a seconda del livello di difficoltà scelto
 
 
 
-//! 1. 
+//! 1.  +  9.
+var totalNumber;
+var totalBombs = 16;
+var totalChoices = totalNumber - totalBombs;
+
 var bombs = [];
 
 
@@ -31,7 +46,7 @@ function cpuRandom(){
 
 
 //! 3.
-while (bombs.length < 16) {
+while (bombs.length < totalBombs) {
     var randomNumber = cpuRandom();
 
     if (!bombs.includes(randomNumber)){
@@ -41,13 +56,37 @@ while (bombs.length < 16) {
 
 console.log('array bombs: ' + bombs);
 
+//! 10.
+var level = prompt('Scegli il livello di difficoltà: "facile", "medio", "difficile".');
+var difficultyLevel = ['facile', 'medio', 'difficile'];
+
+//! 11. 
+while (!level || !difficultyLevel.includes(level.toLowerCase().trim())){
+    level = prompt('Scegli il livello di difficoltà: "facile", "medio", "difficile".');
+}
+
+
+//! 12. 
+switch (level.toLowerCase().trim()) {
+    case 'facile':
+        totalNumber = 100;
+        break;
+    case 'medio':
+        totalNumber = 80;
+        break;
+    case 'difficile':
+        totalNumber = 50;
+        break;    
+}
+
+
 
 //! 4. 
 function getNumber() {
-    var userChoice = parseInt(prompt('Inserisci un numero compreso tra 1 e 100'));
+    var userChoice = parseInt(prompt('Inserisci un numero compreso tra 1 e ' + totalNumber));
 
         while (!userChoice || isNaN(userChoice) || userChoice < 1 || userChoice > 100) {
-            userChoice = parseInt(prompt('Inserisci un numero compreso tra 1 e 100'));
+            userChoice = parseInt(prompt('Inserisci un numero compreso tra 1 e ' + totalNumber));
         }
 
     console.log('l\'utente ha scelto: ' + userChoice);
@@ -59,8 +98,9 @@ function getNumber() {
 var userArray = [];
 
 
+
 //! 6.
-while (userArray.length < 84) {
+while (userArray.length < totalChoices) {
     var userNumber = getNumber();
 
     if (bombs.includes(userNumber)){
@@ -73,7 +113,7 @@ while (userArray.length < 84) {
     } 
 } 
 
-console.log('numeri utente: ' + userArray);
+console.log('Numeri scelti dall\'utente: ' + userArray);
 
 //! 7. 
 var score = '';
@@ -84,7 +124,8 @@ for (var i = 0; i < userArray.length; i++) {
     score = point * userArray.length;
 }
 
-console.log('il mio punteggio: ' + score);
+console.log('Punteggio totalizzato: ' + score);
+
 
 // 7.1. ALTERNATIVA 
 /* Poiché il punteggio da assegnare è di 1 per ogni elemento di 'userArray' potrei semplicemente scrivere che: 
